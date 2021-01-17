@@ -1,0 +1,58 @@
+#include "stdafx.h"
+#include<math.h>
+#include<time.h>
+
+bool is_prime_num(int num)
+{
+
+	int i=0;
+	if (num<2)
+	{
+		return false;
+	}
+	else if(num==2)
+	{
+		return true;
+	}
+
+	for (i=2;i<num;i=i+1)
+	{
+		if (num%i==0)
+		{
+			return false;
+		}
+        return true;
+	} 
+}
+	
+int main(int argc, char* argv[])
+{
+	
+   time_t sec_from_1970=0;
+   time (&sec_from_1970);
+   
+   time_t sec1=0;
+   time_t sec_jiange=0;
+   
+
+   int c;
+   bool bPrimeNumber=false;
+  
+    
+  
+   while(sec_jiange<10)
+   {
+	   for (c=1;sec_jiange<11;c=c++)
+	   {
+	   time(&sec1);
+	   sec_jiange=sec1 - sec_from_1970;
+	   bPrimeNumber=is_prime_num(c);
+	   if( bPrimeNumber)
+	   {
+       printf("第 %d 秒得出 %d 是质数\n", sec_jiange,c);
+	   }
+	  } 
+	  
+	}
+   return 0;
+}
